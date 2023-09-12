@@ -1,0 +1,36 @@
+/**
+ * DES-006 - Verificador de Palíndromo
+ * 
+ * Crie um algoritmo que receba uma palavra e retorne se ela é um palíndromo 
+ * (ou seja, se ela é igual lida de trás para frente).
+ */
+
+programa {
+  inclua biblioteca Texto
+
+  funcao inicio() {
+    cadeia palavra
+    inteiro fim, inicio = 0
+    logico ehPalindromo = verdadeiro
+
+    escreva("Digite uma palavra: ")
+    leia(palavra)
+
+    fim = Texto.numero_caracteres(palavra) - 1
+
+    enquanto(inicio < fim){
+      se(Texto.obter_caracter(palavra, inicio) != Texto.obter_caracter(palavra, fim)){
+        ehPalindromo = falso
+      }
+
+      inicio++
+      fim--
+    }
+
+    se(ehPalindromo){
+      escreva("Essa palavra é um palíndromo!")
+    } senao {
+      escreva("Essa palavra não é um palíndromo!")
+    }
+  }
+}
