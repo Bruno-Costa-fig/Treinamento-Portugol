@@ -1,0 +1,50 @@
+/**
+ * DES-005 - Classificação e Validação de Triângulos
+ * 
+ * Escreva um programa que aceite três comprimentos e determine se eles podem formar 
+ * um triângulo válido. 
+ * 
+ * Se sim, classifique o triângulo como Equilátero (todos os lados iguais), Isósceles 
+ * (dois lados iguais) ou Escaleno (todos os lados diferentes). 
+ * 
+ * Isso auxiliará na avaliação rápida de viabilidade de construções geométricas.
+ */
+
+programa {
+  funcao inicio() {
+    inteiro ladoA, ladoB, ladoC
+    logico trianguloValido = falso
+
+    escreva("Digite o lado A do triângulo: ")
+    leia(ladoA)
+
+    escreva("Digite o lado B do triângulo: ")
+    leia(ladoB)
+
+    escreva("Digite o lado C do triângulo: ")
+    leia(ladoC)
+
+    // e -> adição (AND)
+    // ou -> disjunção (OR)
+    // nao -> negação (NOT)
+
+    se(ladoA < ladoB + ladoC e ladoB < ladoA + ladoC e ladoC < ladoA + ladoB){
+      trianguloValido = verdadeiro
+    }
+
+    se(trianguloValido){
+      escreva("Os lados formam um triângulo válido!\n")
+
+      se(ladoA == ladoB e ladoB == ladoC){
+        escreva("Esse é um triângulo EQUILÁTERO!")
+      } senao se (ladoA != ladoB e ladoB != ladoC e ladoA != ladoC) {
+        escreva("Esse é um triângulo ESCALENO!")
+      } senao {
+        escreva("Esse é um triângulo ISÓSCELES!")
+      }
+
+    } senao {
+      escreva("Os lados não podem formar um triângulo!")
+    }
+  }
+}
